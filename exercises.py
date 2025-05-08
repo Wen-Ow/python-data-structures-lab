@@ -14,7 +14,7 @@ def example_list_function():
       print(element)
 
 # Call the function and print each element
-example_list_function()
+example_list_function() # output: element1, element2, element3
 
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -25,10 +25,13 @@ example_list_function()
 # Assign the last student’s name to a variable named last_student.
 
 def manage_students():
-    # your code here
+    students = ['Bob', 'David', 'John'] # List of student names
+    first_student = students[1] #Lists are 0-indexed in Python. 
+    last_student = students[-1] #Negative indexing is allowed. -1 refers to the last element in the list.
+    return (first_student, last_student) # Returning a tuple with both values so we can print them together
 
 # Call the function and print the result
-print('Exercise 1:', manage_students())
+print('Exercise 1:', manage_students()) # output: ('David', 'John')
 
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -39,10 +42,15 @@ print('Exercise 1:', manage_students())
 # Use a for loop to iterate over the strings in foods and append each string to meal.
 
 def combine_foods():
-    # your code here
+    foods = ('hotdog', 'sandwhich', 'fried chicken') # Tuple of food items
+    meal = '' # Initialize an empty string
+    for food in foods: # Loop through each food item in the tuple
+        meal += food + ' ' # Add the food item and a space to the end of the current string
+
+    return meal.strip() # .strip() removes any trailing space at the end of the string
 
 # Call the function and print the result
-print('Exercise 2:', combine_foods())
+print('Exercise 2:', combine_foods()) # output: 'hotdog sandwhich fried chicken'
 
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -51,10 +59,14 @@ print('Exercise 2:', combine_foods())
 # Using the slice operator, assign a new tuple containing only the last two food strings in the foods to a variable named last_two_foods.
 
 def slice_foods():
-    # your code here
+    foods = ('hotdog', 'sandwhich', 'fried chicken') # Define the tuple of the same foods
+
+    last_two_foods = foods [-2:] # Slicing the tuple to get the last two items
+
+    return last_two_foods # Return the sliced tuple
 
 # Call the function and print the result
-print('Exercise 3:', slice_foods())
+print('Exercise 3:', slice_foods()) # output: ('sandwhich', 'fried chicken')
 
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -64,10 +76,19 @@ print('Exercise 3:', slice_foods())
 # Using the home_town dictionary, assign to a variable named home_town_message a string with this format: “I was born in <city>, <state> - population of <population>”
 
 def hometown_info():
-    # your code here
+    home_town = { # Dictionary with key-value pairs, denoted with {}
+        'city': 'Coral Springs',
+        'state': 'Florida',
+        'population': 134000
+    }
+
+    # Using string formatting to create the message
+    home_town_message = f'I was born in {home_town["city"]}, {home_town["state"]} - population of {home_town["population"]}.' # dict['key'] returns the value
+    
+    return home_town_message # Return the formatted string
 
 # Call the function and print the result
-print('Exercise 4:', hometown_info())
+print('Exercise 4:', hometown_info()) # output: I was born in Coral Springs, Florida - population of 134000.
 
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -77,35 +98,21 @@ print('Exercise 4:', hometown_info())
 # Use a for loop to iterate over the key: value pairs in the home_town dictionary and append a string with the following format to home_town_items: "<key> = <value>"
 
 def list_home_town_items():
-    # your code here
+    home_town = { # Dictionary with key-value pairs, denoted with {}
+        'city': 'Coral Springs',
+        'state': 'Florida',
+        'population': 134000
+    }
+
+    home_town_items = [] # Initialize an empty list
+
+    for key, value in home_town.items(): # Loop through each key-value pair in the dictionary and .items() returns key-value pairs
+        home_town_items.append(f'{key} = {value}') # Append the formatted string to the list
+
+    return home_town_items
+    
 
 # Call the function and print the result
-print('Exercise 5:', list_home_town_items())
-
-# ----------------------------------------------------------------------------------------------------------------
-
-# Exercise 6: Celebrate Students
-#
-# Using the list of students and a list comprehension, assign to a variable named awesome_students a new list containing strings.
-# For example: ["Tina is awesome!", "Fred is awesome!", "Wilma is awesome!"]
-
-def create_awesome_students():
-    # your code here
-
-# Call the function and print the result
-print('Exercise 6:', create_awesome_students())
-
-# ----------------------------------------------------------------------------------------------------------------
-
-# Exercise 7: Filter Foods
-#
-# Assign to a variable named foods_with_an_a the result of list comprehension that filters the foods tuple to only include food strings that contain the letter 'a'.
-# For example, if foods is a tuple of ('Taco', 'Burrito', 'Sandwich'), foods_with_an_a would be a list equal to ['Taco', 'Sandwich']
-
-def filter_foods_with_a():
-    # your code here
-
-# Call the function and print the result
-print('Exercise 7:', filter_foods_with_a())
+print('Exercise 5:', list_home_town_items()) # output: ['city = Coral Springs', 'state = Florida', 'population = 134000']
 
 # ----------------------------------------------------------------------------------------------------------------
